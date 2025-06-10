@@ -17,9 +17,6 @@ export default class LinkMetadataPlugin extends Plugin {
 
       if (!fm) return;
 
-      console.log('fm', fm);
-
-
       Object
         .entries(fm)
         .forEach(([key, value]) => {

@@ -1,5 +1,5 @@
 {
-	"name": "obsidian-frontmatter-link-classes",
+	"name": "frontmatter-link-classes",
 	"version": "1.0.0",
 	"description": "Adds classes to links based on frontmatter metadata",
 	"main": "main.js",

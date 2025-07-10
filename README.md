@@ -1,4 +1,4 @@
-# ✨ Obsidian Metadata Link Classes Plugin
+# ✨ Metadata Link Classes Plugin
 
 Enhance your Obsidian links by automatically adding classes based on frontmatter metadata! Style links dynamically using your custom CSS rules.
 

@@ -20,23 +20,32 @@ export default class LinkMetadataPlugin extends Plugin {
       Object
         .entries(fm)
         .forEach(([key, value]) => {
-          if (typeof value === 'string') {
-            linkEl.addClass(`link-${key}-${value}`);
-          }
+          try {
+            if (typeof value === 'string') {
+              linkEl.addClass(`link-${key}-${value.replace(/ /g, '-')}`);
+            }
 
-          if (typeof value === 'boolean' && value) {
-            linkEl.addClass(`link-${key}-true`);
-          }
+            if (typeof value === 'boolean' && value) {
+              linkEl.addClass(`link-${key}-true`);
+            }
 
-          // Arrays
-          if (Array.isArray(value)) {
-            const tags = value.map(t => String(t).replace(/^#/, ''));
+            // Arrays
+            if (Array.isArray(value)) {
+              const tags = value.map(t => String(t).replace(/^#/, '').replace(/ /g, '-'));
 
-            tags.forEach(tag => {
-              linkEl.addClass(`link-${key}-${tag}`);
-            });
+              tags.forEach(tag => {
+                linkEl.addClass(`link-${key}-${tag}`);
+              });
+            }
+
+            if (typeof value === 'number') {
+              linkEl.addClass(`link-${key}-${value.toString()}`);
+            }
+
+          } catch (e) {
+            console.error(e);
           }
-        });
+      });
     });
   }
 }
